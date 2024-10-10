@@ -1,6 +1,7 @@
 package main
 
 import (
+	"gRPC-Bi-Direct-Example/chatserver"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -21,6 +22,9 @@ func main() {
 	log.Printf("\nListening @ %v", Port)
 
 	grpcServer := grpc.NewServer()
+
+	cs := chatserver.ChatServer{}
+	chatserver.RegisterServicesServer(grpcServer, &cs)
 
 	err = grpcServer.Serve(listen)
 	if err != nil {
