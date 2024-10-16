@@ -10,8 +10,8 @@ message FromClient {
 }
 
 message FromServer {
-   string name = 1;
-   string body = 2;
+  string name = 1;
+  string body = 2;
 }
 
 service Services {
